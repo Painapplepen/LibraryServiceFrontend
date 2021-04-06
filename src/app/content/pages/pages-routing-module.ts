@@ -3,7 +3,6 @@ import { RouterModule, Routes } from "@angular/router";
 import { AuthorsPageComponent } from "./authors-page/authors-page.component";
 import { BookfundsPageComponent } from "./bookfunds-page/bookfunds-page.component";
 import { BooksPageComponent } from "./books-page/books-page.component";
-import { NotfoundComponent } from "./error/notfound/notfound.component";
 import { GenresPageComponent } from "./genres-page/genres-page.component";
 import { LibrariesPageComponent } from "./libraries-page/libraries-page.component";
 import { PagesComponent } from "./pages.component";
@@ -14,11 +13,6 @@ const routes: Routes = [
     path: "",
     component: PagesComponent,
     children: [
-      {
-        path: "",
-        pathMatch: "full",
-        redirectTo: "/bookfunds",
-      },
       {
         path: "bookfunds",
         component: BookfundsPageComponent
@@ -46,8 +40,9 @@ const routes: Routes = [
     ]
   },
   {
-    path: "not-found",
-    component: NotfoundComponent
+    path: "**",
+    redirectTo: "",
+    pathMatch: "full"
   }
 ];
 

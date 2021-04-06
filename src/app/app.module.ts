@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NotfoundComponent } './content/pages/error/notfound/notfound.component';
 import { BooksPageComponent } from './content/pages/books-page/books-page.component';
 import { BookfundsPageComponent } from './content/pages/bookfunds-page/bookfunds-page.component';
 import { GenresPageComponent } from './content/pages/genres-page/genres-page.component';
@@ -13,7 +11,6 @@ import { PublishersPageComponent } from './content/pages/publishers-page/publish
 @NgModule({
   declarations: [
     AppComponent,
-    NotfoundComponent,
     BooksPageComponent,
     BookfundsPageComponent,
     GenresPageComponent,

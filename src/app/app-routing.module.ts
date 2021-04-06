@@ -4,11 +4,11 @@ import { HomePageComponent } from './content/pages/home-page/home-page.component
 import { LoginPageComponent } from './content/pages/login-page/login-page.component';
 
 const routes: Routes = [
-  { 
+  {
     path: "",
     component: HomePageComponent
   },
-  { 
+  {
     path: "login",
     component: LoginPageComponent
   },
@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: "**",
-    redirectTo: "not-found",
+    redirectTo: "",
     pathMatch: "full"
   }
 ];
