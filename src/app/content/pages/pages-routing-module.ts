@@ -34,7 +34,7 @@ const routes: Routes = [
         component: LibrariesPageComponent
       },
       {
-        path: "Publishers",
+        path: "publishers",
         component: PublishersPageComponent
       }
     ]
