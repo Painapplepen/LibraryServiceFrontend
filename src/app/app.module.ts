@@ -7,6 +7,9 @@ import { BookfundsPageComponent } from './content/pages/bookfunds-page/bookfunds
 import { GenresPageComponent } from './content/pages/genres-page/genres-page.component';
 import { LibrariesPageComponent } from './content/pages/libraries-page/libraries-page.component';
 import { PublishersPageComponent } from './content/pages/publishers-page/publishers-page.component';
+import { HeaderComponent } from './content/layout/header/header.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { FooterComponent } from './content/layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,11 +18,14 @@ import { PublishersPageComponent } from './content/pages/publishers-page/publish
     BookfundsPageComponent,
     GenresPageComponent,
     LibrariesPageComponent,
-    PublishersPageComponent
+    PublishersPageComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

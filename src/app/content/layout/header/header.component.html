@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark special-color-dark ">
+  <div>
+    <mdb-icon fas icon="user"></mdb-icon>
+  </div>
+  <a class="navbar-brand" href="#">Library Service</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Book funds</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Books</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Authors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Libraries</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Publishers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Genres</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+    <li class="nav-item dropdown" dropdown>
+      <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+        <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span></a>
+      <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+        <a class="dropdown-item waves-light" mdbWavesEffect href="#">Log in</a>
+        <a class="dropdown-item waves-light" mdbWavesEffect href="#">Log out</a>
+      </div>
+    </li>
+  </ul>
+  </div>
+</nav>
