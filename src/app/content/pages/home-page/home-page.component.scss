@@ -1,0 +1,10 @@
+th:first-child, td:first-child
+{
+  position:sticky;
+  left:0px;
+  background-color: gray;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
