@@ -1,6 +1,6 @@
 <nav class="navbar bg-dark">
   <h1><a routerLink="">Library Service</a></h1>
-    <ul>
+    <ul *ngIf="authService.isAuthenticated();else signin">
       <li routerLinkActive="active">
         <a [routerLink]="['/admin', 'bookfunds']">Book funds</a>
       </li>
@@ -19,5 +19,12 @@
       <li routerLinkActive="active" >
         <a [routerLink]="['/admin', 'genres']">Genres</a>
       </li>
+      <li routerLinkActive="active" >
+        <a>Sign out</a>
+      </li>
     </ul>
 </nav>
+
+<ng-template #signin>
+  <a [routerLink]="['/login']">Sign in</a>
+</ng-template>
