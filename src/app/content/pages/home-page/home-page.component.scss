@@ -2,16 +2,11 @@ th:first-child, td:first-child
 {
   position:sticky;
   left:0px;
-  background-color: gray;
+  background-color: var(--light-color);
 }
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
 
 .admin-page-card {
-  background: var(--card-color-default);
+  background: var(--light-color);
   width: 100%;
   height: 85vh;
   margin-bottom: 40px;
@@ -48,12 +43,6 @@ input[type='text']{
   padding: 5px;
 }
 
-.home-table fa-icon{
-  color: var(--table-icon-color);
-  margin-left: 5px;
-  float: left;
-}
-
 .home-table table tr:hover{
-  background: var(--table-hover-color);
+  background: var(--light-color);
 }
