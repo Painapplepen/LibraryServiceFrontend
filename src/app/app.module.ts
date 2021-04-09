@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginPageComponent } from './content/pages/login-page/login-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomePageComponent } from './content/pages/home-page/home-page.component';
+import { PaginationComponent } from './content/layout/pagination/pagination.component';
+import { SpinnerComponent } from './content/layout/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HomePageComponent } from './content/pages/home-page/home-page.component
     LibrariesPageComponent,
     PublishersPageComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PaginationComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
