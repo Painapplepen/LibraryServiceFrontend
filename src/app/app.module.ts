@@ -16,6 +16,8 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { AuthService } from './core/auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginPageComponent } from './content/pages/login-page/login-page.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomePageComponent } from './content/pages/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { LoginPageComponent } from './content/pages/login-page/login-page.compon
     BookfundsPageComponent,
     GenresPageComponent,
     LoginPageComponent,
+    HomePageComponent,
     LibrariesPageComponent,
     PublishersPageComponent,
     HeaderComponent,
@@ -36,6 +39,7 @@ import { LoginPageComponent } from './content/pages/login-page/login-page.compon
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FontAwesomeModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [AuthGuard, AuthService],
