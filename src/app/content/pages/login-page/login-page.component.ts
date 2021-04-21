@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
-import { User } from 'src/app/core/intefaces/interfaces';
+import { Admin } from 'src/app/core/intefaces/interfaces';
 
 @Component({
   selector: 'app-login-page',
@@ -41,12 +41,12 @@ export class LoginPageComponent implements OnInit {
 
     this.submitted = true;
 
-    const user: User = {
+    const admin: Admin = {
       email: this.form.value.email,
       password: this.form.value.password
     };
 
-    this.authService.login(user).subscribe(() => {
+    this.authService.login(admin).subscribe(() => {
       this.form.reset();
       this.router.navigate(['/admin', 'dashboard']);
       this.submitted = false;

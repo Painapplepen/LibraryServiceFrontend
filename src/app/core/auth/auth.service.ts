@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, Subject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { FbAuthResponse, User } from '../intefaces/interfaces';
+import { FbAuthResponse, Admin } from '../intefaces/interfaces';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
 
     public error$: Subject<string> = new Subject<string>();
-    public pathBase: string = "http://localhost/";
+    public pathBase: string = "http://localhost:5000";
     constructor(private http: HttpClient) {}
 
     get token(): string {
@@ -20,9 +20,9 @@ export class AuthService {
         return localStorage.getItem('fb-token');
     }
 
-    login(user: User): Observable<any> {
-        user.returnSecureToken = true;
-        return this.http.post(`${this.pathBase}/auth`, user)
+    login(admin: Admin): Observable<any> {
+      admin.returnSecureToken = true;
+        return this.http.post(`${this.pathBase}auth`, admin)
             .pipe(
                 tap(this.setToken),
                 catchError(this.handleError.bind(this))
