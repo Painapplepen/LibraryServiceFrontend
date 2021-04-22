@@ -9,7 +9,7 @@
   <div class="home-table" *ngIf="libraryData$ | async as libraryData; else loading">
     <table>
         <tr>
-          <th scope="col">Id<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+          <th scope="col" (click)="filter()">Id<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
           <th scope="col">Title<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
           <th scope="col">Pages<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
           <th scope="col">Year<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>

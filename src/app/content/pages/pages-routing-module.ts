@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AuthGuard } from "src/app/core/guards/auth.guard";
 import { AuthorsPageComponent } from "./authors-page/authors-page.component";
 import { BookfundsPageComponent } from "./bookfunds-page/bookfunds-page.component";
 import { BooksPageComponent } from "./books-page/books-page.component";
@@ -13,6 +14,11 @@ const routes: Routes = [
     path: "",
     component: PagesComponent,
     children: [
+      {
+        path: "",
+        redirectTo: "/admin/bookfunds",
+        pathMatch: "full",
+      },
       {
         path: "bookfunds",
         component: BookfundsPageComponent
@@ -37,18 +43,20 @@ const routes: Routes = [
         path: "publishers",
         component: PublishersPageComponent
       }
-    ]
+    ],
+    canActivate: [AuthGuard]
   },
   {
     path: "**",
-    redirectTo: "",
+    redirectTo: "bookfunds",
     pathMatch: "full"
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class PagesRoutingModule {
 }

@@ -14,12 +14,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './core/guards/auth.guard';
 import { AuthService } from './core/auth/auth.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginPageComponent } from './content/pages/login-page/login-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomePageComponent } from './content/pages/home-page/home-page.component';
 import { PaginationComponent } from './content/layout/pagination/pagination.component';
 import { SpinnerComponent } from './content/layout/spinner/spinner.component';
+import { AuthInterseptor } from './core/auth/auth.interseptor';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,15 @@ import { SpinnerComponent } from './content/layout/spinner/spinner.component';
     FontAwesomeModule,
     MDBBootstrapModule.forRoot()
   ],
-  providers: [AuthGuard, AuthService],
+  providers: [
+    AuthGuard,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterseptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

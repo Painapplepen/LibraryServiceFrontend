@@ -56,21 +56,6 @@ export interface FoundBookFund {
   genre: string;
 }
 
-export interface BookFundSearchCondition {
-  amount: number;
-  libraryName: string;
-  libraryAddress: string;
-  libraryTelephone: string;
-  bookTitle: string;
-  bookAmountPage: number;
-  bookYear: number;
-  authorName: string;
-  authorSurname: string;
-  authorPatronymic: string;
-  publisher: string;
-  genre: string;
-}
-
 export interface Book {
   id?: number;
   Title: string;
@@ -119,4 +104,32 @@ export interface Library {
   Name: string;
   Address: string;
   Telephone: string;
+}
+
+export interface Paged {
+  pageSize: number;
+  page: number;
+}
+
+export interface ISortDirection {
+  sortDirection: string;
+}
+
+export interface ISortProperty {
+  sortProperty: string;
+}
+
+export interface BookFundSearchCondition {
+  amount: number[];
+  libraryName: string[];
+  libraryAddress: string[];
+  libraryTelephone: string[];
+  bookTitle: string[];
+  bookAmountPage: number[];
+  bookYear: number[];
+  authorName: string[];
+  authorSurname: string[];
+  authorPatronymic: string[];
+  publisher: string[];
+  genre: string[];
 }
