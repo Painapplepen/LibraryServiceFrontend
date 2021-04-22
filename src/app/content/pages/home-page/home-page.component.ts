@@ -12,11 +12,11 @@ import { HomePageService } from 'src/app/core/services/home-page.service';
 export class HomePageComponent implements OnInit {
 
   faLongArrowAltDown = faLongArrowAltDown;
-  libraryData$: Observable<FoundBookFund[]>
+  libraryData$: Observable<FoundBookFund[]>;
 
   constructor(private homePageService: HomePageService) { }
 
   ngOnInit(): void {
-    this.libraryData$ = this.homePageService.FoundAllPublisher();
+    this.libraryData$ = this.homePageService.FoundAllData();
   }
 }

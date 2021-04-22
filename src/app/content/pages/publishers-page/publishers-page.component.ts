@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { FoundPublisher } from 'src/app/core/intefaces/interfaces';
+import { PublisherService } from 'src/app/core/services/publisher.service';
 
 @Component({
   selector: 'app-publishers-page',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublishersPageComponent implements OnInit {
 
-  constructor() { }
+
+  publsihers$: Observable<FoundPublisher[]>;
+  constructor(private publisherService: PublisherService) { }
 
   ngOnInit(): void {
+    debugger
+    this.publsihers$ = this.publisherService.FoundAllPublishers();
   }
 
 }

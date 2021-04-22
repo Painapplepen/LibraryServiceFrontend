@@ -11,8 +11,7 @@ export class HomePageService {
   public pathBase: string = "https://localhost:5001/api/";
   constructor(private http: HttpClient) {}
 
-  public FoundAllPublisher():Observable<FoundBookFund[]> {
-    debugger
+  public FoundAllData():Observable<FoundBookFund[]> {
     return this.http.get<FoundBookFund[]>(`${this.pathBase}bookFund/getAll`);
   }
 }

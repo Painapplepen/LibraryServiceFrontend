@@ -5,12 +5,12 @@
 
   <div class="alert alert-info" *ngIf="message">{{ message }}</div>
 
-  <div class="form-control" [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}">
-      <label for="email">Email: </label>
-      <input id="email" type="email" formControlName="email">
-      <div class="validation" *ngIf="form.get('email').touched && form.get('email').invalid">
-          <small *ngIf="form.get('email').errors.required">Enter email field.</small>
-          <small *ngIf="form.get('email').errors.email">Invalid email.</small>
+  <div class="form-control" [ngClass]="{invalid: form.get('login').touched && form.get('login').invalid}">
+      <label for="login">Email: </label>
+      <input id="login" type="email" formControlName="login">
+      <div class="validation" *ngIf="form.get('login').touched && form.get('login').invalid">
+          <small *ngIf="form.get('login').errors.required">Enter email field.</small>
+          <small *ngIf="form.get('login').errors.email">Invalid email.</small>
       </div>
   </div>
 

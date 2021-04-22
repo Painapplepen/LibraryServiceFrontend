@@ -10,24 +10,27 @@ export class PublisherService {
   public pathBase: string = "https://localhost:5001/api/";
   constructor(private http: HttpClient) {}
 
+  public FoundAllPublishers():Observable<FoundPublisher[]> {
+    return this.http.get<FoundPublisher[]>(`${this.pathBase}publisher/getAll`);
+  }
 
-  public getAllPublisher():Observable<Publisher[]> {
+  public GetAllPublisher():Observable<Publisher[]> {
     return this.http.get<Publisher[]>(`${this.pathBase}publisher`);
   }
 
-  public getPublsherById(id):Observable<Publisher> {
+  public GetPublsherById(id):Observable<Publisher> {
     return this.http.get<Publisher>(`${this.pathBase}publisher/${id}`);
   }
 
-  public addPublisher(publisher: Publisher):Observable<Publisher> {
+  public AddPublisher(publisher: Publisher):Observable<Publisher> {
     return this.http.post<Publisher>(`${this.pathBase}publisher`, publisher);
   }
 
-  public updatePublisher(publisher: Publisher):Observable<Publisher> {
+  public UpdatePublisher(publisher: Publisher):Observable<Publisher> {
     return this.http.put<FoundPublisher>(`${this.pathBase}publisher/${publisher.id}`, publisher);
   }
 
-  public deletePublisher(id):Observable<any> {
+  public DeletePublisher(id):Observable<any> {
     return this.http.delete<any>(`${this.pathBase}publisher/${id}`);
   }
 }

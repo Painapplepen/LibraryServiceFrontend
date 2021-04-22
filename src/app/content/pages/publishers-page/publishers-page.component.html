@@ -1,1 +1,20 @@
-<p>publishers-page works!</p>
+<div class="home-page-card">
+  <div style="caption-side: top;" class="text-center">
+    Publishers
+  </div>
+  <div class="home-table" *ngIf="publsihers$ | async as publsihers; else loading">
+    <table>
+      <tr>
+        <th scope="col">Id<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col">Name<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+      </tr>
+      <tr *ngFor="let publisher of publsihers">
+        <th scope="row">{{publisher.id}}</th>
+        <td>{{publisher.name}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>

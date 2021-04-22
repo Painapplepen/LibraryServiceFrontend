@@ -8,7 +8,7 @@ import { FbAuthResponse, Admin } from '../intefaces/interfaces';
 export class AuthService {
 
     public error$: Subject<string> = new Subject<string>();
-    public pathBase: string = "http://localhost:5000";
+    public pathBase: string = "https://localhost:5001/api/";
     constructor(private http: HttpClient) {}
 
     get token(): string {

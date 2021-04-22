@@ -23,13 +23,13 @@ export class LoginPageComponent implements OnInit {
     this.route.queryParams.subscribe( (params: Params) => {
       if (params.loginAgain) {
         this.message = 'Please, enter data';
-      } else if (params.aithFailed) {
+      } else if (params.authFailed) {
         this.message = 'Session ended. Enter data again.';
       }
     });
 
     this.form = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
+      login: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
   }
@@ -42,7 +42,7 @@ export class LoginPageComponent implements OnInit {
     this.submitted = true;
 
     const admin: Admin = {
-      email: this.form.value.email,
+      login: this.form.value.login,
       password: this.form.value.password
     };
 

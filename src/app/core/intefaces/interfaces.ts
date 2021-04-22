@@ -1,5 +1,5 @@
 export interface Admin {
-  email: string;
+  login: string;
   password: string;
   returnSecureToken?: boolean;
 }
