@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faLongArrowAltDown } from '@fortawesome/free-solid-svg-icons';
+import { faLongArrowAltDown, faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { FoundBookFund } from 'src/app/core/intefaces/interfaces';
 import { HomePageService } from 'src/app/core/services/home-page.service';
@@ -18,5 +18,14 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.libraryData$ = this.homePageService.FoundAllData();
+  }
+
+  filter(){
+    if(this.faLongArrowAltDown === faLongArrowAltDown){
+      this.faLongArrowAltDown = faLongArrowAltUp
+    } else {
+      this.faLongArrowAltDown = faLongArrowAltDown
+    }
+    console.log("filter")
   }
 }
