@@ -1,0 +1,17 @@
+<div style="caption-side: top;" class="text-center">
+  Publishers
+</div>
+<form class="card" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-control" [ngClass]="{invalid: form.get('publisherName').touched && form.get('publisherName').invalid}">
+    <label for="publisherName">Publisher: </label>
+    <input id="publisherName" type="text" formControlName="publisherName">
+    <div class="validation" *ngIf="form.get('publisherName').touched && form.get('publisherName').invalid">
+        <small *ngIf="form.get('publisherName').errors.required">Enter publisher.</small>
+        <small *ngIf="form.get('publisherName').errors.maxlength">
+            Publisher length must not be more than {{form.get('publisherName').errors.maxlength.requiredLength}}.
+            Actual length is {{form.get('publisherName').errors.maxlength.actualLength}}.
+        </small>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-dark" [disabled]="form.invalid || submitted">Save</button>
+</form>

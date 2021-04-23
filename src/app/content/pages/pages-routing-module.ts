@@ -7,6 +7,8 @@ import { BooksPageComponent } from "./books-page/books-page.component";
 import { GenresPageComponent } from "./genres-page/genres-page.component";
 import { LibrariesPageComponent } from "./libraries-page/libraries-page.component";
 import { PagesComponent } from "./pages.component";
+import { PublishersPageDetailComponent } from "./publishers-page/publishers-page-detail/publishers-page-detail.component";
+import { PublishersPageListComponent } from "./publishers-page/publishers-page-list/publishers-page-list.component";
 import { PublishersPageComponent } from "./publishers-page/publishers-page.component";
 
 const routes: Routes = [
@@ -41,7 +43,12 @@ const routes: Routes = [
       },
       {
         path: "publishers",
-        component: PublishersPageComponent
+        component: PublishersPageComponent,
+        children: [
+          {path: "", redirectTo: "publishers/list", pathMatch: "full"},
+          {path: "list", component: PublishersPageListComponent},
+          {path: "detail", component: PublishersPageDetailComponent},
+        ]
       }
     ],
     canActivate: [AuthGuard]

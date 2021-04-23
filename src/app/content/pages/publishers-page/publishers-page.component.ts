@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { faEdit, faLongArrowAltDown, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { Observable } from 'rxjs';
-import { FoundPublisher } from 'src/app/core/intefaces/interfaces';
-import { PublisherService } from 'src/app/core/services/publisher.service';
 
 @Component({
   selector: 'app-publishers-page',
@@ -11,30 +7,7 @@ import { PublisherService } from 'src/app/core/services/publisher.service';
 })
 export class PublishersPageComponent implements OnInit {
 
-  faLongArrowAltDown = faLongArrowAltDown;
-  faEdit = faEdit;
-  faTrashAlt = faTrashAlt;
-  faPlus = faPlus;
-  publsihers$: Observable<FoundPublisher[]>;
+  constructor() { }
 
-  constructor(private publisherService: PublisherService) { }
-
-  ngOnInit(): void {
-    this.publsihers$ = this.publisherService.FoundAllPublishers();
-  }
-
-  addItem() {
-    console.log("addItem")
-  }
-  deleteItem(id: number){
-    this.publisherService.DeletePublisher(id).subscribe(() => {
-      this.publsihers$ = this.publisherService.FoundAllPublishers();
-    });
-  }
-
-  editItem(id: number){
-    debugger
-    console.log(id);
-  }
-
+  ngOnInit(): void { }
 }
