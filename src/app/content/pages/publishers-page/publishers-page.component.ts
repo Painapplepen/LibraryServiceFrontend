@@ -27,11 +27,9 @@ export class PublishersPageComponent implements OnInit {
     console.log("addItem")
   }
   deleteItem(id: number){
-    //popup
-
-    console.log(`delete ${id}`);
-    //this.publisherService.DeletePublisher(id);
-    //this.publsihers$ = this.publisherService.FoundAllPublishers();
+    this.publisherService.DeletePublisher(id).subscribe(() => {
+      this.publsihers$ = this.publisherService.FoundAllPublishers();
+    });
   }
 
   editItem(id: number){

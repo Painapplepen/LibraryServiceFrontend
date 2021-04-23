@@ -46,3 +46,9 @@ input[type='text']{
 .home-table table tr:hover{
   background: var(--light-color);
 }
+
+fa-icon{
+  &:hover {
+    color: var(--orange-color);
+  }
+}
