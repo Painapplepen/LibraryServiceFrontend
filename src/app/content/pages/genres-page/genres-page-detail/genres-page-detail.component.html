@@ -1,0 +1,17 @@
+<div style="caption-side: top;" class="text-center">
+  Genre
+</div>
+<form class="card" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-control" [ngClass]="{invalid: form.get('genreName').touched && form.get('genreName').invalid}">
+    <label for="genreName">Genre: </label>
+    <input id="genreName" type="text" formControlName="genreName">
+    <div class="validation" *ngIf="form.get('genreName').touched && form.get('genreName').invalid">
+        <small *ngIf="form.get('genreName').errors.required">Enter genre.</small>
+        <small *ngIf="form.get('genreName').errors.maxlength">
+            Genre length must not be more than {{form.get('genreName').errors.maxlength.requiredLength}}.
+            Actual length is {{form.get('genreName').errors.maxlength.actualLength}}.
+        </small>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-dark" [disabled]="form.invalid || submitted">Save</button>
+</form>

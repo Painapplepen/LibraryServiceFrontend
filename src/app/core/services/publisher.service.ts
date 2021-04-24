@@ -1,21 +1,16 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, Subject } from "rxjs";
+import { Observable } from "rxjs";
 import { FoundPublisher, Publisher } from "../intefaces/interfaces";
 
 @Injectable({providedIn: 'root'})
 export class PublisherService {
 
-  public error$: Subject<string> = new Subject<string>();
   public pathBase: string = "https://localhost:5001/api/";
   constructor(private http: HttpClient) {}
 
   public FoundAllPublishers():Observable<FoundPublisher[]> {
     return this.http.get<FoundPublisher[]>(`${this.pathBase}publisher/getAll`);
-  }
-
-  public GetAllPublisher():Observable<Publisher[]> {
-    return this.http.get<Publisher[]>(`${this.pathBase}publisher`);
   }
 
   public GetPublsherById(id):Observable<Publisher> {

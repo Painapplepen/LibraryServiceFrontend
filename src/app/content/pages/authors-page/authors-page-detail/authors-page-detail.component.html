@@ -1,0 +1,40 @@
+<div style="caption-side: top;" class="text-center">
+  Author
+</div>
+<form class="card" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-control" [ngClass]="{invalid: form.get('authorName').touched && form.get('authorName').invalid}">
+    <label for="authorName">Name: </label>
+    <input id="authorName" type="text" formControlName="authorName">
+    <div class="validation" *ngIf="form.get('authorName').touched && form.get('authorName').invalid">
+        <small *ngIf="form.get('authorName').errors.required">Enter name.</small>
+        <small *ngIf="form.get('authorName').errors.maxlength">
+            Name length must not be more than {{form.get('authorName').errors.maxlength.requiredLength}}.
+            Actual length is {{form.get('authorName').errors.maxlength.actualLength}}.
+        </small>
+    </div>
+  </div>
+  <div class="form-control" [ngClass]="{invalid: form.get('authorSurname').touched && form.get('authorSurname').invalid}">
+    <label for="authorSurname">Surname: </label>
+    <input id="authorSurname" type="text" formControlName="authorSurname">
+    <div class="validation" *ngIf="form.get('authorSurname').touched && form.get('authorSurname').invalid">
+        <small *ngIf="form.get('authorSurname').errors.required">Enter surnname.</small>
+        <small *ngIf="form.get('authorSurname').errors.maxlength">
+            Surname length must not be more than {{form.get('authorSurname').errors.maxlength.requiredLength}}.
+            Actual length is {{form.get('authorSurname').errors.maxlength.actualLength}}.
+        </small>
+    </div>
+  </div>
+  <div class="form-control" [ngClass]="{invalid: form.get('authorPatronymic').touched && form.get('authorPatronymic').invalid}">
+    <label for="authorPatronymic">Patronymic: </label>
+    <input id="authorPatronymic" type="text" formControlName="authorPatronymic">
+    <div class="validation" *ngIf="form.get('authorPatronymic').touched && form.get('authorPatronymic').invalid">
+        <small *ngIf="form.get('authorPatronymic').errors.required">Enter patronymic.</small>
+        <small *ngIf="form.get('authorPatronymic').errors.maxlength">
+            Patronymic length must not be more than {{form.get('authorPatronymic').errors.maxlength.requiredLength}}.
+            Actual length is {{form.get('authorPatronymic').errors.maxlength.actualLength}}.
+        </small>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-dark" [disabled]="form.invalid || submitted">Save</button>
+</form>
+

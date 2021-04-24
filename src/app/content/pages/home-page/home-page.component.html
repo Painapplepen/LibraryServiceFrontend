@@ -16,21 +16,21 @@
           <th scope="col" (click)="filter('genre')">Genre<fa-icon [icon]="icons.genre" style="margin: 5px;"></fa-icon></th>
           <th scope="col" (click)="filter('library')">Library<fa-icon [icon]="icons.library" style="margin: 5px;"></fa-icon></th>
           <th scope="col" (click)="filter('address')">Address<fa-icon [icon]="icons.address" style="margin: 5px;"></fa-icon></th>
-          <th scope="col" (click)="filter('telephone')">Telephon<fa-icon [icon]="icons.telephone" style="margin: 5px;"></fa-icon></th>
+          <th scope="col" (click)="filter('telephone')">Telephone<fa-icon [icon]="icons.telephone" style="margin: 5px;"></fa-icon></th>
           <th scope="col" (click)="filter('publisher')">Publisher<fa-icon [icon]="icons.publisher" style="margin: 5px;"></fa-icon></th>
           <th scope="col" (click)="filter('amount')">Amount<fa-icon [icon]="icons.amount" style="margin: 5px;"></fa-icon></th>
         </tr>
-        <tr *ngFor="let bookFund of libraryData">s
-          <td>{{bookFund.bookTitle}}</td>
-          <td>{{bookFund.bookAmountPage}}</td>
-          <td>{{bookFund.bookYear}}</td>
-          <td>{{bookFund.authorName}} {{bookFund.authorSurname}} {{bookFund.authorPatronymic}}</td>
-          <td>{{bookFund.genre}}</td>
-          <td>{{bookFund.libraryName}}</td>
-          <td>{{bookFund.libraryAddress}}</td>
-          <td>{{bookFund.libraryTelephone}}</td>
-          <td>{{bookFund.publisher}}</td>
-          <td>{{bookFund.amount}}</td>
+        <tr *ngFor="let library of libraryData">
+          <td>{{library.bookTitle}}</td>
+          <td>{{library.bookAmountPage}}</td>
+          <td>{{library.bookYear}}</td>
+          <td>{{library.authorName}} {{library.authorSurname}} {{library.authorPatronymic}}</td>
+          <td>{{library.genre}}</td>
+          <td>{{library.libraryName}}</td>
+          <td>{{library.libraryAddress}}</td>
+          <td>{{library.libraryTelephone}}</td>
+          <td>{{library.publisher}}</td>
+          <td>{{library.amount}}</td>
         </tr>
     </table>
   </div>

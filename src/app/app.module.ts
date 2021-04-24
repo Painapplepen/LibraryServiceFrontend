@@ -22,6 +22,13 @@ import { PaginationComponent } from './content/layout/pagination/pagination.comp
 import { SpinnerComponent } from './content/layout/spinner/spinner.component';
 import { AuthInterseptor } from './core/auth/auth.interseptor';
 import { PublishersPageDetailComponent } from './content/pages/publishers-page/publishers-page-detail/publishers-page-detail.component';
+import { GenresPageDetailComponent } from './content/pages/genres-page/genres-page-detail/genres-page-detail.component';
+import { BookfundsPageDetailComponent } from './content/pages/bookfunds-page/bookfunds-page-detail/bookfunds-page-detail.component';
+import { BooksPageDetailComponent } from './content/pages/books-page/books-page-detail/books-page-detail.component';
+import { LibrariesPageDetailComponent } from './content/pages/libraries-page/libraries-page-detail/libraries-page-detail.component';
+import { AuthorsPageDetailComponent } from './content/pages/authors-page/authors-page-detail/authors-page-detail.component';
+import { AuthorsPageComponent } from './content/pages/authors-page/authors-page.component';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +45,12 @@ import { PublishersPageDetailComponent } from './content/pages/publishers-page/p
     PaginationComponent,
     SpinnerComponent,
     PublishersPageDetailComponent,
+    GenresPageDetailComponent,
+    BookfundsPageDetailComponent,
+    BooksPageDetailComponent,
+    LibrariesPageDetailComponent,
+    AuthorsPageComponent,
+    AuthorsPageDetailComponent
   ],
   imports: [
     BrowserModule,

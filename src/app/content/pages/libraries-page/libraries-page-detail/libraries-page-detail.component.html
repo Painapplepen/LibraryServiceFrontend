@@ -1,0 +1,41 @@
+<div style="caption-side: top;" class="text-center">
+  Library
+</div>
+<form class="card" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-control" [ngClass]="{invalid: form.get('libraryName').touched && form.get('libraryName').invalid}">
+    <label for="libraryName">Library name: </label>
+    <input id="libraryName" type="text" formControlName="libraryName">
+    <div class="validation" *ngIf="form.get('libraryName').touched && form.get('libraryName').invalid">
+        <small *ngIf="form.get('libraryName').errors.required">Enter library name.</small>
+        <small *ngIf="form.get('libraryName').errors.maxlength">
+            Name length must not be more than {{form.get('libraryName').errors.maxlength.requiredLength}}.
+            Actual length is {{form.get('libraryName').errors.maxlength.actualLength}}.
+        </small>
+    </div>
+  </div>
+  <div class="form-control" [ngClass]="{invalid: form.get('libraryAddress').touched && form.get('libraryAddress').invalid}">
+    <label for="libraryAddress">Address: </label>
+    <input id="libraryAddress" type="text" formControlName="libraryAddress">
+    <div class="validation" *ngIf="form.get('libraryAddress').touched && form.get('libraryAddress').invalid">
+        <small *ngIf="form.get('libraryAddress').errors.required">Enter address.</small>
+        <small *ngIf="form.get('libraryAddress').errors.maxlength">
+            Address length must not be more than {{form.get('libraryAddress').errors.maxlength.requiredLength}}.
+            Actual length is {{form.get('libraryAddress').errors.maxlength.actualLength}}.
+        </small>
+    </div>
+  </div>
+  <div class="form-control" [ngClass]="{invalid: form.get('libraryTelephone').touched && form.get('libraryTelephone').invalid}">
+    <label for="libraryTelephone">Telephone: </label>
+    <input id="libraryTelephone" type="text" formControlName="libraryTelephone">
+    <div class="validation" *ngIf="form.get('libraryTelephone').touched && form.get('libraryTelephone').invalid">
+        <small *ngIf="form.get('libraryTelephone').errors.required">Enter telephone.</small>
+        <small *ngIf="form.get('libraryTelephone').errors.maxlength">
+            Telephone length must not be more than {{form.get('libraryTelephone').errors.maxlength.requiredLength}}.
+            Actual length is {{form.get('libraryTelephone').errors.maxlength.actualLength}}.
+        </small>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-dark" [disabled]="form.invalid || submitted">Save</button>
+</form>
+
+

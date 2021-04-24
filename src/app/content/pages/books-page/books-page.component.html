@@ -1,1 +1,37 @@
-<p>books-page works!</p>
+<div class="home-page-card">
+  <div style="caption-side: top;" class="text-center">
+    Books
+  </div>
+  <div class="home-table" *ngIf="books$ | async as books; else loading">
+    <table>
+      <tr>
+        <th scope="col">Title<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col">Pages<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col">Year<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col">Author<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col">Genre<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col">Publisher<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col"(click)="addItem()"><fa-icon [icon]="faPlus" style="margin: 5px;"></fa-icon></th>
+      </tr>
+      <tr *ngFor="let book of books">
+        <td>{{book.title}}</td>
+        <td>{{book.amountPage}}</td>
+        <td>{{book.year}}</td>
+        <td>{{book.authorName}} {{book.authorSurname}} {{book.authorPatronymic}}</td>
+        <td>{{book.genre}}</td>
+        <td>{{book.publisher}}</td>
+        <td><fa-icon [icon]="faEdit" style="margin: 5px;" (click)="editItem(book)"></fa-icon>
+          <fa-icon [icon]="faTrashAlt" style="margin: 5px;" (click)="deleteItem(book)"></fa-icon>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="home-table-search">
+    <div class="home-table-search-item"><button type="submit" class="btn btn-dark">Back</button></div>
+    <div class="home-table-search-item"><button type="submit" class="btn btn-dark">Next</button></div>
+  </div>
+</div>
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>
+

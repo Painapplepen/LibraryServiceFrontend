@@ -1,3 +1,44 @@
-<app-spinner></app-spinner>
-<p>bookfunds-page works!</p>
-<router-outlet></router-outlet>
+<div class="home-page-card">
+  <div style="caption-side: top;" class="text-center">
+    Book funds
+  </div>
+  <div class="home-table" *ngIf="bookfunds$ | async as bookfunds; else loading">
+    <table>
+      <tr>
+        <th scope="col">Title<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col">Pages<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col">Year<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col">Author<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col">Genre<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col">Library<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col">Address<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col">Telephone<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col">Publisher<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col">Amount<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+        <th scope="col"(click)="addItem()"><fa-icon [icon]="faPlus" style="margin: 5px;"></fa-icon></th>
+      </tr>
+      <tr *ngFor="let bookfund of bookfunds">
+        <td>{{bookfund.bookTitle}}</td>
+        <td>{{bookfund.bookAmountPage}}</td>
+        <td>{{bookfund.bookYear}}</td>
+        <td>{{bookfund.authorName}} {{bookfund.authorSurname}} {{bookfund.authorPatronymic}}</td>
+        <td>{{bookfund.genre}}</td>
+        <td>{{bookfund.libraryName}}</td>
+        <td>{{bookfund.libraryAddress}}</td>
+        <td>{{bookfund.libraryTelephone}}</td>
+        <td>{{bookfund.publisher}}</td>
+        <td>{{bookfund.amount}}</td>
+        <td><fa-icon [icon]="faEdit" style="margin: 5px;" (click)="editItem(bookfund)"></fa-icon>
+          <fa-icon [icon]="faTrashAlt" style="margin: 5px;" (click)="deleteItem(bookfund, bookfund.title)"></fa-icon>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="home-table-search">
+    <div class="home-table-search-item"><button type="submit" class="btn btn-dark">Back</button></div>
+    <div class="home-table-search-item"><button type="submit" class="btn btn-dark">Next</button></div>
+  </div>
+</div>
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>

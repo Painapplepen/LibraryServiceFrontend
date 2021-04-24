@@ -4,7 +4,7 @@ import { PagesComponent } from "./pages.component";
 
 @NgModule({
   declarations: [
-    PagesComponent,
+    PagesComponent
   ],
   imports: [
     PagesRoutingModule

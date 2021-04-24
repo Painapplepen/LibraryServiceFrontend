@@ -57,9 +57,9 @@ export interface FoundBookFund {
 
 export interface Book {
   id?: number;
-  Title: string;
-  AmountPage: number;
-  Year: number;
+  title: string;
+  amountPage: number;
+  year: number;
   publisherId: number;
   genreId: number;
   authorId: number;
@@ -67,9 +67,9 @@ export interface Book {
 
 export interface FoundBook {
   id?: number;
-  Title: string;
-  AmountPage: number;
-  Year: number;
+  title: string;
+  amountPage: number;
+  year: number;
   authorName: string;
   authorSurname: string;
   authorPatronymic: string;
@@ -79,30 +79,30 @@ export interface FoundBook {
 
 export interface FoundAuthor {
   id: number;
-  Name: string;
-  Surname: string;
-  Patronymic: string;
+  name: string;
+  surname: string;
+  patronymic: string;
 }
 
 export interface Author {
   id?: number;
-  Name: string;
-  Surname: string;
-  Patronymic: string;
+  name: string;
+  surname: string;
+  patronymic: string;
 }
 
 export interface FoundLibrary {
   id: number;
-  Name: string;
-  Surname: string;
-  Patronymic: string;
+  name: string;
+  surname: string;
+  patronymic: string;
 }
 
 export interface Library {
   id?: number;
-  Name: string;
-  Address: string;
-  Telephone: string;
+  name: string;
+  address: string;
+  telephone: string;
 }
 
 export interface BookFundSearchCondition {
