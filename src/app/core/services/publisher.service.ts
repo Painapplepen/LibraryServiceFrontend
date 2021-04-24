@@ -31,7 +31,6 @@ export class PublisherService {
   }
 
   public DeletePublisher(id):Observable<any> {
-    debugger
     return this.http.delete<any>(`${this.pathBase}publisher/${id}`);
   }
 }

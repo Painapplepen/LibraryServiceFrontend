@@ -9,20 +9,18 @@
   <div class="home-table" *ngIf="libraryData$ | async as libraryData; else loading">
     <table>
         <tr>
-          <th scope="col" (click)="filter()">Id<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
-          <th scope="col">Title<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
-          <th scope="col">Pages<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
-          <th scope="col">Year<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
-          <th scope="col">Author<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
-          <th scope="col">Genre<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
-          <th scope="col">Library<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
-          <th scope="col">Address<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
-          <th scope="col">Telephon<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
-          <th scope="col">Publisher<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
-          <th scope="col">Amount<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
+          <th scope="col" (click)="filter('title')">Title<fa-icon [icon]="icons.title" style="margin: 5px;"></fa-icon></th>
+          <th scope="col" (click)="filter('pages')">Pages<fa-icon [icon]="icons.pages" style="margin: 5px;"></fa-icon></th>
+          <th scope="col" (click)="filter('year')">Year<fa-icon [icon]="icons.year" style="margin: 5px;"></fa-icon></th>
+          <th scope="col" (click)="filter('author')">Author<fa-icon [icon]="icons.author" style="margin: 5px;"></fa-icon></th>
+          <th scope="col" (click)="filter('genre')">Genre<fa-icon [icon]="icons.genre" style="margin: 5px;"></fa-icon></th>
+          <th scope="col" (click)="filter('library')">Library<fa-icon [icon]="icons.library" style="margin: 5px;"></fa-icon></th>
+          <th scope="col" (click)="filter('address')">Address<fa-icon [icon]="icons.address" style="margin: 5px;"></fa-icon></th>
+          <th scope="col" (click)="filter('telephone')">Telephon<fa-icon [icon]="icons.telephone" style="margin: 5px;"></fa-icon></th>
+          <th scope="col" (click)="filter('publisher')">Publisher<fa-icon [icon]="icons.publisher" style="margin: 5px;"></fa-icon></th>
+          <th scope="col" (click)="filter('amount')">Amount<fa-icon [icon]="icons.amount" style="margin: 5px;"></fa-icon></th>
         </tr>
-        <tr *ngFor="let bookFund of libraryData">
-          <th scope="row">{{bookFund.id}}</th>
+        <tr *ngFor="let bookFund of libraryData">s
           <td>{{bookFund.bookTitle}}</td>
           <td>{{bookFund.bookAmountPage}}</td>
           <td>{{bookFund.bookYear}}</td>

@@ -8,7 +8,6 @@ import { GenresPageComponent } from "./genres-page/genres-page.component";
 import { LibrariesPageComponent } from "./libraries-page/libraries-page.component";
 import { PagesComponent } from "./pages.component";
 import { PublishersPageDetailComponent } from "./publishers-page/publishers-page-detail/publishers-page-detail.component";
-import { PublishersPageListComponent } from "./publishers-page/publishers-page-list/publishers-page-list.component";
 import { PublishersPageComponent } from "./publishers-page/publishers-page.component";
 
 const routes: Routes = [
@@ -30,33 +29,18 @@ const routes: Routes = [
         component: BooksPageComponent
       },
       {
-        path: "authors",
-        component: AuthorsPageComponent
+        path: "authors", component: AuthorsPageComponent
       },
-      {
-        path: "genres",
-        component: GenresPageComponent
-      },
-      {
-        path: "libraries",
-        component: LibrariesPageComponent
-      },
-      {
-        path: "publishers",
-        component: PublishersPageComponent,
-        children: [
-          {path: "", redirectTo: "publishers/list", pathMatch: "full"},
-          {path: "list", component: PublishersPageListComponent},
-          {path: "detail", component: PublishersPageDetailComponent},
-        ]
-      }
+      { path: "genres", component: GenresPageComponent },
+      { path: "libraries", component: LibrariesPageComponent },
+      { path: "publishers", component: PublishersPageComponent, },
+      { path: "publisherdetail", component: PublishersPageDetailComponent }
     ],
     canActivate: [AuthGuard]
   },
   {
     path: "**",
-    redirectTo: "bookfunds",
-    pathMatch: "full"
+    redirectTo: "bookfunds"
   }
 ];
 

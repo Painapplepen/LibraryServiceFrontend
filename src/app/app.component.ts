@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { faLongArrowAltDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({

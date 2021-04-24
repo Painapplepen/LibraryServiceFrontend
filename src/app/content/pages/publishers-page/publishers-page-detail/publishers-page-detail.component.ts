@@ -13,18 +13,25 @@ export class PublishersPageDetailComponent implements OnInit {
 
   form: FormGroup;
   submitted = false;
+  publisher: Publisher;
+  isEditMode = false;
 
   constructor( private router: Router,
     private publisherService: PublisherService) { }
 
   ngOnInit(): void {
+    const options = history.state.options;
+    this.publisher = options && options.publisher;
     this.form = new FormGroup({
       publisherName: new FormControl('', [Validators.required, Validators.maxLength(24)])
     });
+    if(this.publisher) {
+      this.form.get("publisherName").setValue(this.publisher.name);
+      this.isEditMode = true;
+    }
   }
 
   submit() {
-    debugger
     if (this.form.invalid) {
       return;
     }
@@ -34,14 +41,25 @@ export class PublishersPageDetailComponent implements OnInit {
     const publisher: Publisher = {
       name: this.form.value.publisherName
     };
-
-    this.publisherService.AddPublisher(publisher).subscribe(() => {
-      this.form.reset();
-      this.router.navigate(['/admin', 'publishers']);
-      this.submitted = false;
-    }, () => {
-      this.submitted = false;
-    });
+    if(this.isEditMode){
+      publisher.id = this.publisher.id;
+      this.publisherService.UpdatePublisher(publisher).subscribe(() => {
+        this.form.reset();
+        this.router.navigate(['/admin', 'publishers']);
+        this.submitted = false;
+      }, () => {
+        this.submitted = false;
+        this.isEditMode = false;
+      });
+    }else {
+      this.publisherService.AddPublisher(publisher).subscribe(() => {
+        this.form.reset();
+        this.router.navigate(['/admin', 'publishers']);
+        this.submitted = false;
+      }, () => {
+        this.submitted = false;
+      });
+    }
   }
 
 }

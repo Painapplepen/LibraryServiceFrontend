@@ -22,7 +22,6 @@ import { PaginationComponent } from './content/layout/pagination/pagination.comp
 import { SpinnerComponent } from './content/layout/spinner/spinner.component';
 import { AuthInterseptor } from './core/auth/auth.interseptor';
 import { PublishersPageDetailComponent } from './content/pages/publishers-page/publishers-page-detail/publishers-page-detail.component';
-import { PublishersPageListComponent } from './content/pages/publishers-page/publishers-page-list/publishers-page-list.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +38,6 @@ import { PublishersPageListComponent } from './content/pages/publishers-page/pub
     PaginationComponent,
     SpinnerComponent,
     PublishersPageDetailComponent,
-    PublishersPageListComponent,
   ],
   imports: [
     BrowserModule,

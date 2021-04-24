@@ -13,6 +13,18 @@ export class HomePageComponent implements OnInit {
 
   faLongArrowAltDown = faLongArrowAltDown;
   libraryData$: Observable<FoundBookFund[]>;
+  icons = {
+    title: faLongArrowAltDown,
+    pages: faLongArrowAltDown,
+    year: faLongArrowAltDown,
+    author: faLongArrowAltDown,
+    genre: faLongArrowAltDown,
+    library: faLongArrowAltDown,
+    address: faLongArrowAltDown,
+    telephone: faLongArrowAltDown,
+    publisher: faLongArrowAltDown,
+    amount: faLongArrowAltDown
+  };
 
   constructor(private homePageService: HomePageService) { }
 
@@ -20,12 +32,11 @@ export class HomePageComponent implements OnInit {
     this.libraryData$ = this.homePageService.FoundAllData();
   }
 
-  filter(){
-    if(this.faLongArrowAltDown === faLongArrowAltDown){
-      this.faLongArrowAltDown = faLongArrowAltUp
+  filter(property: string){
+    if(this.icons[property] === faLongArrowAltDown){
+      this.icons[property] = faLongArrowAltUp
     } else {
-      this.faLongArrowAltDown = faLongArrowAltDown
+      this.icons[property] = faLongArrowAltDown
     }
-    console.log("filter")
   }
 }
