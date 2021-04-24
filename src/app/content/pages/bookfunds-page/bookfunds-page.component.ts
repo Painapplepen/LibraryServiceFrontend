@@ -23,7 +23,6 @@ export class BookfundsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.bookfunds$ = this.bookfundService.FoundAllBookFunds();
-    debugger
   }
 
   addItem() {

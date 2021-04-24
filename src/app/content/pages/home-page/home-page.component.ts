@@ -14,6 +14,7 @@ export class HomePageComponent implements OnInit {
   faLongArrowAltDown = faLongArrowAltDown;
   libraryData$: Observable<FoundBookFund[]>;
   icons = {
+    isbn: faLongArrowAltDown,
     title: faLongArrowAltDown,
     pages: faLongArrowAltDown,
     year: faLongArrowAltDown,

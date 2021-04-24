@@ -41,6 +41,7 @@ export interface BookFund {
 
 export interface FoundBookFund {
   id: number;
+  isbn: string;
   bookTitle: string;
   bookAmountPage: number;
   bookYear: number;
@@ -57,6 +58,7 @@ export interface FoundBookFund {
 
 export interface Book {
   id?: number;
+  isbn: string;
   title: string;
   amountPage: number;
   year: number;
@@ -67,6 +69,7 @@ export interface Book {
 
 export interface FoundBook {
   id?: number;
+  isbn: string;
   title: string;
   amountPage: number;
   year: number;
@@ -106,6 +109,7 @@ export interface Library {
 }
 
 export interface BookFundSearchCondition {
+  isbn: string[];
   bookTitle: string[];
   bookAmountPage: number[];
   bookYear: number[];

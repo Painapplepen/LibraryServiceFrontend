@@ -5,6 +5,7 @@
   <div class="home-table" *ngIf="books$ | async as books; else loading">
     <table>
       <tr>
+        <th scope="col">ISBN<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
         <th scope="col">Title<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
         <th scope="col">Pages<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
         <th scope="col">Year<fa-icon [icon]="faLongArrowAltDown" style="margin: 5px;"></fa-icon></th>
@@ -14,6 +15,7 @@
         <th scope="col"(click)="addItem()"><fa-icon [icon]="faPlus" style="margin: 5px;"></fa-icon></th>
       </tr>
       <tr *ngFor="let book of books">
+        <td>{{book.isbn}}</td>
         <td>{{book.title}}</td>
         <td>{{book.amountPage}}</td>
         <td>{{book.year}}</td>
