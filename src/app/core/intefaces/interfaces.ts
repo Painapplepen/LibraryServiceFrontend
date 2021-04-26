@@ -56,6 +56,11 @@ export interface FoundBookFund {
   amount: number;
 }
 
+export interface TotalPage {
+  items: Array<FoundBookFund>;
+  totalCount: number;
+}
+
 export interface Book {
   id?: number;
   isbn: string;
@@ -97,8 +102,8 @@ export interface Author {
 export interface FoundLibrary {
   id: number;
   name: string;
-  surname: string;
-  patronymic: string;
+  address: string;
+  telephone: string;
 }
 
 export interface Library {
@@ -122,6 +127,23 @@ export interface BookFundSearchCondition {
   libraryAddress: string[];
   libraryTelephone: string[];
   amount: number[];
+  pageSize: number;
+  page: number;
+  sortDirection: string;
+  sortProperty: string;
+}
+
+
+export interface BookSearchCondition {
+  isbn: string[];
+  title: string[];
+  authorName: string[];
+  authorSurname: string[];
+  authorPatronymic: string[];
+  publisher: string[];
+  genre: string[];
+  amountPage: number[];
+  year: number[];
   pageSize: number;
   page: number;
   sortDirection: string;

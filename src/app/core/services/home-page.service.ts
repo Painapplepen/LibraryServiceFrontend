@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
 import { map } from "rxjs/internal/operators";
-import { BookFundSearchCondition, FoundBookFund } from "../intefaces/interfaces";
+import { BookFundSearchCondition, FoundBookFund, TotalPage } from "../intefaces/interfaces";
 
 @Injectable({providedIn: 'root'})
 export class HomePageService {
@@ -11,7 +11,8 @@ export class HomePageService {
   public pathBase: string = "https://localhost:5001/api/";
   constructor(private http: HttpClient) {}
 
-  public FoundAllData():Observable<FoundBookFund[]> {
-    return this.http.get<FoundBookFund[]>(`${this.pathBase}bookFund/getAll`);
+  public FoundAllData(conditions: BookFundSearchCondition):Observable<TotalPage> {
+    return this.http.post<TotalPage>(`${this.pathBase}bookFund/search`, conditions);
   }
+
 }

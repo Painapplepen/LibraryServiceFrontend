@@ -13,8 +13,8 @@ export class BookFundService {
     return this.http.get<FoundBookFund[]>(`${this.pathBase}bookFund/getAll`);
   }
 
-  public GetBookFundById(id):Observable<FoundBookFund> {
-    return this.http.get<FoundBookFund>(`${this.pathBase}bookFund/${id}`);
+  public GetBookFundById(id):Observable<BookFund> {
+    return this.http.get<BookFund>(`${this.pathBase}bookFund/${id}`);
   }
 
   public AddBookFund(bookfund: BookFund):Observable<BookFund> {

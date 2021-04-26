@@ -1,1 +1,85 @@
-<p>books-page-detail works!</p>
+<div style="caption-side: top;" class="text-center">
+  Book
+</div>
+<form class="card" [formGroup]="form" (ngSubmit)="submit()">
+
+  <div class="form-control" [ngClass]="{invalid: form.get('isbn').touched && form.get('isbn').invalid}">
+    <label for="isbn">ISBN: </label>
+    <input id="isbn" type="text" formControlName="isbn">
+    <div class="validation" *ngIf="form.get('isbn').touched && form.get('isbn').invalid">
+        <small *ngIf="form.get('isbn').errors.required">Enter ISBN.</small>
+        <small *ngIf="form.get('isbn').errors.maxlength">
+            ISBN length must not be more than {{form.get('isbn').errors.maxlength.requiredLength}}.
+            Actual length is {{form.get('isbn').errors.maxlength.actualLength}}.
+        </small>
+    </div>
+  </div>
+
+  <div class="form-control" [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}">
+    <label for="title">Title: </label>
+    <input id="title" type="text" formControlName="title">
+    <div class="validation" *ngIf="form.get('title').touched && form.get('title').invalid">
+        <small *ngIf="form.get('title').errors.required">Enter title.</small>
+        <small *ngIf="form.get('title').errors.maxlength">
+            Title length must not be more than {{form.get('title').errors.maxlength.requiredLength}}.
+            Actual length is {{form.get('title').errors.maxlength.actualLength}}.
+        </small>
+    </div>
+  </div>
+  <div class="form-control" [ngClass]="{invalid: form.get('pages').touched && form.get('pages').invalid}">
+    <label for="pages">Pages: </label>
+    <input id="pages" type="text" formControlName="pages">
+    <div class="validation" *ngIf="form.get('pages').touched && form.get('pages').invalid">
+        <small *ngIf="form.get('pages').errors.required">Enter pages.</small>
+        <small *ngIf="form.get('pages').errors.maxlength">
+            Surname length must not be more than {{form.get('pages').errors.maxlength.requiredLength}}.
+            Actual length is {{form.get('pages').errors.maxlength.actualLength}}.
+        </small>
+    </div>
+  </div>
+
+  <div class="form-control" [ngClass]="{invalid: form.get('author').touched && form.get('author').invalid}">
+    <label for="author">Author: </label>
+    <select formControlName="author">
+      <option *ngFor="let author of authors$" [value]="author.id">{{author.name}} {{author.surname}} {{author.patronymic}}</option>
+    </select>
+    <div class="validation" *ngIf="form.get('author').touched && form.get('author').invalid">
+        <small *ngIf="form.get('author').errors.required">Select author.</small>
+    </div>
+  </div>
+
+
+  <div class="form-control" [ngClass]="{invalid: form.get('publisher').touched && form.get('publisher').invalid}">
+    <label for="publisher">Publisher: </label>
+    <select formControlName="publisher">
+      <option *ngFor="let publisher of publishers$" [value]="publisher.id">{{publisher.name}}</option>
+    </select>
+    <div class="validation" *ngIf="form.get('publisher').touched && form.get('publisher').invalid">
+        <small *ngIf="form.get('publisher').errors.required">Select publisher.</small>
+    </div>
+  </div>
+
+  <div class="form-control" [ngClass]="{invalid: form.get('genre').touched && form.get('genre').invalid}">
+    <label for="genre">Genre: </label>
+    <select formControlName="genre">
+      <option *ngFor="let genre of genres$" [value]="genre.id">{{genre.name}}</option>
+    </select>
+    <div class="validation" *ngIf="form.get('genre').touched && form.get('genre').invalid">
+        <small *ngIf="form.get('genre').errors.required">Select genre.</small>
+    </div>
+  </div>
+
+  <div class="form-control" [ngClass]="{invalid: form.get('year').touched && form.get('year').invalid}">
+    <label for="year">Year: </label>
+    <input id="year" type="text" formControlName="year">
+    <div class="validation" *ngIf="form.get('year').touched && form.get('year').invalid">
+        <small *ngIf="form.get('year').errors.required">Enter year.</small>
+        <small *ngIf="form.get('year').errors.maxlength">
+            Year length must not be more than {{form.get('year').errors.maxlength.requiredLength}}.
+            Actual length is {{form.get('year').errors.maxlength.actualLength}}.
+        </small>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-dark" [disabled]="form.invalid || submitted">Save</button>
+</form>
+

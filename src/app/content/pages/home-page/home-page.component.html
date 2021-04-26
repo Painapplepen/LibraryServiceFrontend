@@ -1,19 +1,26 @@
 <div class="home-page-card">
-  <div class="home-table-search">
-    <div class="home-table-search-item"><input type="text"></div>
-    <div class="home-table-search-item"><button type="submit" class="btn btn-dark">Search</button></div>
-  </div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="home-table-search">
+      <div>
+        <select formControlName="selectType">
+          <option *ngFor="let select of selector" [value]="select">{{select}}</option>
+        </select>
+      </div>
+      <div class="home-table-search-item"><input type="text" formControlName="inputValue"></div>
+      <div class="home-table-search-item"><button type="submit" class="btn btn-dark">Search</button></div>
+    </div>
+  </form>
   <div style="caption-side: top;" class="text-center">
     Library Service
   </div>
-  <div class="home-table" *ngIf="libraryData$ | async as libraryData; else loading">
+  <div class="home-table" *ngIf="items$; else loading">
     <table>
         <tr>
           <th scope="col" (click)="filter('isbn')">ISBN<fa-icon [icon]="icons.isbn" style="margin: 5px;"></fa-icon></th>
           <th scope="col" (click)="filter('title')">Title<fa-icon [icon]="icons.title" style="margin: 5px;"></fa-icon></th>
           <th scope="col" (click)="filter('pages')">Pages<fa-icon [icon]="icons.pages" style="margin: 5px;"></fa-icon></th>
           <th scope="col" (click)="filter('year')">Year<fa-icon [icon]="icons.year" style="margin: 5px;"></fa-icon></th>
-          <th scope="col" (click)="filter('author')">Author<fa-icon [icon]="icons.author" style="margin: 5px;"></fa-icon></th>
+          <th scope="col">Author</th>
           <th scope="col" (click)="filter('genre')">Genre<fa-icon [icon]="icons.genre" style="margin: 5px;"></fa-icon></th>
           <th scope="col" (click)="filter('library')">Library<fa-icon [icon]="icons.library" style="margin: 5px;"></fa-icon></th>
           <th scope="col" (click)="filter('address')">Address<fa-icon [icon]="icons.address" style="margin: 5px;"></fa-icon></th>
@@ -21,23 +28,23 @@
           <th scope="col" (click)="filter('publisher')">Publisher<fa-icon [icon]="icons.publisher" style="margin: 5px;"></fa-icon></th>
           <th scope="col" (click)="filter('amount')">Amount<fa-icon [icon]="icons.amount" style="margin: 5px;"></fa-icon></th>
         </tr>
-        <tr *ngFor="let library of libraryData">
-          <td>{{library.isbn}}</td>
-          <td>{{library.bookTitle}}</td>
-          <td>{{library.bookAmountPage}}</td>
-          <td>{{library.bookYear}}</td>
-          <td>{{library.authorName}} {{library.authorSurname}} {{library.authorPatronymic}}</td>
-          <td>{{library.genre}}</td>
-          <td>{{library.libraryName}}</td>
-          <td>{{library.libraryAddress}}</td>
-          <td>{{library.libraryTelephone}}</td>
-          <td>{{library.publisher}}</td>
-          <td>{{library.amount}}</td>
+        <tr *ngFor="let item of items$">
+          <td>{{item.isbn}}</td>
+          <td>{{item.bookTitle}}</td>
+          <td>{{item.bookAmountPage}}</td>
+          <td>{{item.bookYear}}</td>
+          <td>{{item.authorName}} {{item.authorSurname}} {{item.authorPatronymic}}</td>
+          <td>{{item.genre}}</td>
+          <td>{{item.libraryName}}</td>
+          <td>{{item.libraryAddress}}</td>
+          <td>{{item.libraryTelephone}}</td>
+          <td>{{item.publisher}}</td>
+          <td>{{item.amount}}</td>
         </tr>
     </table>
-  </div>
-  <div class="home-table-search">
-    <app-pagination></app-pagination>
+    <div class="home-table-search">
+      <app-pagination (changePage)="changePage($event)" [totalPages]="count" [currentPage]="currentPage"></app-pagination>
+    </div>
   </div>
 </div>
 

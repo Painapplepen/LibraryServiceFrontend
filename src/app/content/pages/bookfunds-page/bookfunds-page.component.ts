@@ -17,6 +17,7 @@ export class BookfundsPageComponent implements OnInit {
   faTrashAlt = faTrashAlt;
   faPlus = faPlus;
   bookfunds$: Observable<FoundBookFund[]>;
+  bookFundById: BookFund;
 
   constructor(private router: Router,
     private bookfundService: BookFundService) { }
@@ -39,13 +40,17 @@ export class BookfundsPageComponent implements OnInit {
   }
 
   editItem(bookfund: BookFund){
+    this.bookfundService.GetBookFundById(bookfund.id).subscribe((value) => {
+      this.bookFundById = value;
+      this.bookFundById.id = bookfund.id;
       this.router.navigate(['/admin', 'bookfunddetail'], {
         state: {
           options: {
-            bookfund
+            bookfund: this.bookFundById
           }
         }
       });
+    });
   }
 
 

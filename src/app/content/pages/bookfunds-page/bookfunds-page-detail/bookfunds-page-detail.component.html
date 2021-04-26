@@ -1,1 +1,50 @@
-<p>bookfunds-page-detail works!</p>
+<div style="caption-side: top;" class="text-center">
+  Book Fund
+</div>
+<form class="card" [formGroup]="form" (ngSubmit)="submit()">
+
+  <div class="form-control" [ngClass]="{invalid: form.get('book').touched && form.get('book').invalid}">
+    <label for="book">Book: </label>
+    <select formControlName="book">
+      <option *ngFor="let book of books$" [value]="book.id">
+        {{book.isbn}}
+        {{book.title}}
+        {{book.authorName}}
+        {{book.authorSurname}}
+        {{book.authorPatronymic}}
+        {{book.amountPage}}
+        {{book.year}}
+        {{book.genre}}
+        {{book.year}}
+      </option>
+    </select>
+    <div class="validation" *ngIf="form.get('book').touched && form.get('book').invalid">
+        <small *ngIf="form.get('book').errors.required">Select book.</small>
+    </div>
+  </div>
+
+
+  <div class="form-control" [ngClass]="{invalid: form.get('library').touched && form.get('library').invalid}">
+    <label for="library">Library: </label>
+    <select formControlName="library">
+      <option *ngFor="let library of libraries$" [value]="library.id">{{library.name}} {{library.address}} {{library.telephone}}</option>
+    </select>
+    <div class="validation" *ngIf="form.get('library').touched && form.get('library').invalid">
+        <small *ngIf="form.get('library').errors.required">Select library.</small>
+    </div>
+  </div>
+
+  <div class="form-control" [ngClass]="{invalid: form.get('amount').touched && form.get('amount').invalid}">
+    <label for="amount">Amount: </label>
+    <input id="amount" type="text" formControlName="amount">
+    <div class="validation" *ngIf="form.get('amount').touched && form.get('amount').invalid">
+        <small *ngIf="form.get('amount').errors.required">Enter amount.</small>
+        <small *ngIf="form.get('amount').errors.maxlength">
+            Year length must not be more than {{form.get('amount').errors.maxlength.requiredLength}}.
+            Actual length is {{form.get('amount').errors.maxlength.actualLength}}.
+        </small>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-dark" [disabled]="form.invalid || submitted">Save</button>
+</form>
+

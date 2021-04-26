@@ -17,6 +17,7 @@ export class BooksPageComponent implements OnInit {
   faTrashAlt = faTrashAlt;
   faPlus = faPlus;
   books$: Observable<FoundBook[]>;
+  bookById: Book;
 
   constructor(private router: Router,
     private bookService: BookService) { }
@@ -29,7 +30,7 @@ export class BooksPageComponent implements OnInit {
     this.router.navigate(['/admin', 'bookdetail']);
   }
 
-  deleteItem(book: Book){
+  deleteItem(book: FoundBook){
     if(!confirm(`Are you sure you want to delete ${book.title} ?`)){
       return;
     }
@@ -38,14 +39,19 @@ export class BooksPageComponent implements OnInit {
     });
   }
 
-  editItem(book: Book){
+  editItem(book: FoundBook){
+    this.bookService.GetBookById(book.id).subscribe((value) => {
+
+      this.bookById = value;
+      this.bookById.id = book.id;
       this.router.navigate(['/admin', 'bookdetail'], {
         state: {
           options: {
-            book
+            book: this.bookById
           }
         }
       });
+    });
   }
 
 }
